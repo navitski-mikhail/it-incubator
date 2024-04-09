@@ -8,8 +8,7 @@ type propsType = {
     data: taskType[]
 }
 
-function App({headerTitle, data} : propsType) {
-    console.log(data[0].taskTitle)
+function App({headerTitle, data}: propsType) {
     return (
         <div className="App">
             <div>
@@ -19,9 +18,11 @@ function App({headerTitle, data} : propsType) {
                     <button>+</button>
                 </div>
                 <ul>
-                    <li><input type="checkbox" checked={data[0].isDone}/> <span>{data[0].taskTitle}</span></li>
-                    <li><input type="checkbox" checked={data[1].isDone}/> <span>{data[1].taskTitle}</span></li>
-                    <li><input type="checkbox" checked={data[2].isDone}/> <span>{data[2].taskTitle}</span></li>
+                    {data.length === 0 ? <li>Don't have any tasks</li> :
+                        data.map(task => <li key={task.id}>
+                            <input type="checkbox" checked={task.isDone}/> <span>{task.taskTitle}</span>
+                        </li>)
+                    }
                 </ul>
                 <div>
                     <button>All</button>

@@ -24,11 +24,7 @@ const dataDoTasks: Array<taskType> = [
     {id: 3, taskTitle: 'brush', isDone: false},
 ]
 
-const dataWantTasks: Array<taskType> = [
-    {id: 1, taskTitle: 'watch', isDone: true},
-    {id: 2, taskTitle: 'iphone', isDone: false},
-    {id: 2, taskTitle: 'pencil', isDone: false}
-]
+const dataWantTasks: Array<taskType> = []
 
 root.render(
     <React.StrictMode>
