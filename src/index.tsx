@@ -12,26 +12,12 @@ export type taskType = {
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
-const dataLearnTasks: Array<taskType> = [
-    {id: 1, taskTitle: 'sport', isDone: false},
-    {id: 2, taskTitle: 'chess', isDone: true},
-    {id: 3, taskTitle: 'healthy', isDone: true},
-]
 
-const dataDoTasks: Array<taskType> = [
-    {id: 1, taskTitle: 'eat', isDone: true},
-    {id: 2, taskTitle: 'sport exercise', isDone: false},
-    {id: 3, taskTitle: 'brush', isDone: false},
-]
-
-const dataWantTasks: Array<taskType> = []
 
 root.render(
     <React.StrictMode>
         <>
-            <App headerTitle="What to learn" data={dataLearnTasks}/>
-            <App headerTitle="What to do" data={dataDoTasks}/>
-            <App headerTitle="What to want" data={dataWantTasks}/>
+            <App />
         </>
     </React.StrictMode>
 );

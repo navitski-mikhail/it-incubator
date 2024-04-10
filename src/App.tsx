@@ -1,35 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {taskType} from "./index";
+import Todolist from "./Todolist";
 
 
-type propsType = {
-    headerTitle: string
-    data: taskType[]
-}
-
-function App({headerTitle, data}: propsType) {
+function App() {
+    const [dataLearnTasks, setDataLearnTasks] = useState<Array<taskType>>(
+        [
+            {id: 1, taskTitle: 'sport', isDone: false},
+            {id: 2, taskTitle: 'chess', isDone: true},
+            {id: 3, taskTitle: 'healthy', isDone: true},
+        ])
+    const removeTaskHandler = (id: number) => {
+        const filteredDataLearnTasks = dataLearnTasks.filter(task => {
+            return task.id !== id
+        })
+        setDataLearnTasks(filteredDataLearnTasks)
+    }
     return (
         <div className="App">
-            <div>
-                <h3>{headerTitle}</h3>
-                <div>
-                    <input/>
-                    <button>+</button>
-                </div>
-                <ul>
-                    {data.length === 0 ? <li>Don't have any tasks</li> :
-                        data.map(task => <li key={task.id}>
-                            <input type="checkbox" checked={task.isDone}/> <span>{task.taskTitle}</span>
-                        </li>)
-                    }
-                </ul>
-                <div>
-                    <button>All</button>
-                    <button>Active</button>
-                    <button>Completed</button>
-                </div>
-            </div>
+            <Todolist headerTitle="What to learn"
+                      data={dataLearnTasks}
+                      removeTask={removeTaskHandler}/>
         </div>
     );
 }
