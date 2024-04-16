@@ -3,12 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-export type taskType = {
-    id: number,
-    taskTitle: string,
-    isDone: boolean
-}
-
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );

@@ -1,12 +1,15 @@
 import React from 'react';
+import './Button.css';
+
 
 type buttonType = {
     title: string
+    onClick?: () => void
 }
 
-function Button({title}: buttonType) {
+function Button({title, onClick}: buttonType) {
     return (
-        <button>{title}</button>
+        <button onClick={onClick} className="Button">{title}</button>
     );
 }
 
